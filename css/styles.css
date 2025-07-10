@@ -1,107 +1,129 @@
+/* ==========================================================================
+    Base Reset
+    ========================================================================== */
 * {
- box-sizing: border-box;
- margin: 0;
- padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 html {
- scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
+
 body {
- font-family: 'Inter', sans-serif;
- background: #f9f9f9;
- color: #333;
- line-height: 1.6;
+  font-family: 'IBM Plex Sans', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
 }
 
-
-/* Layout containers */
+/* ==========================================================================
+    Container
+    ========================================================================== */
 .container {
- width: 90%;
- max-width: 900px;
- margin: 0 auto;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-
-/* Header & Nav */
-.site-header {
- background: #001F54;
- color: #fff;
- padding: 2rem 0;
-}
-.site-title {
- font-size: 2.5rem;
- margin-bottom: 0.2rem;
-}
-.site-tagline {
- font-size: 1.1rem;
- opacity: 0.9;
-}
-.navbar {
- margin-top: 1rem;
-}
-.nav-list {
- display: flex;
- justify-content: center;
- list-style: none;
-}
-.nav-link {
- color: #fff;
- text-decoration: none;
- margin: 0 1rem;
- font-weight: 600;
- position: relative;
- padding: 0.2rem 0;
-}
-.nav-link::after {
- content: '';
- display: block;
- height: 2px;
- background: #ff7f50;
- width: 0;
- transition: width 0.3s;
- position: absolute;
- bottom: -4px;
- left: 0;
-}
-.nav-link:hover::after,
-.nav-link.active::after {
- width: 100%;
-}
-
-
-/* Section cards */
-.card {
- background: #fff;
- border-radius: 8px;
- padding: 1.5rem;
- margin: 2rem 0;
- box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-.card h2 {
- color: #001F54;
- margin-bottom: 1rem;
-}
-.project + .project {
- margin-top: 1.5rem;
-}
-
-
-/* Footer */
+/* ==========================================================================
+    Header, Navigation, and Footer
+    ========================================================================== */
+.site-header,
 .site-footer {
- background: #001F54;
- color: #fff;
- text-align: center;
- padding: 1.5rem 0;
- margin-top: 2rem;
+  background: #001F54;
+  color: #fff;
+  text-align: center;
 }
 
+.site-header {
+  padding: 2rem 0;
+}
 
-/* Responsive adjustments */
+.site-footer {
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin-top: 1rem;
+  flex-direction: row;
+}
+
+.navbar a {
+  color: #fff;
+  margin: 0 1rem;
+  font-weight: 600;
+  padding: 0.2rem 0;
+  text-decoration: none;
+  position: relative;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff7f50;
+  transition: width 0.3s;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+    Sections and Cards
+    ========================================================================== */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out, box-shadow 0.3s;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.card a {
+  color: #0077cc;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.card a:hover,
+.card a:active {
+  border-color: #0077cc;
+  color: #005fa3;
+}
+
+/* ==========================================================================
+    Responsive Design
+    ========================================================================== */
 @media (max-width: 600px) {
- .nav-list {
-   flex-direction: column;
- }
- .nav-link {
-   margin: 0.5rem 0;
- }
+  .navbar ul {
+    flex-direction: column;
+  }
+  .navbar a {
+    margin: 0.5rem 0;
+  }
 }
