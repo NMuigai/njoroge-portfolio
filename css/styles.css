@@ -1,0 +1,129 @@
+/* ==========================================================================
+    Base Reset
+    ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+    Container
+    ========================================================================== */
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+    Header, Navigation, and Footer
+    ========================================================================== */
+.site-header,
+.site-footer {
+  background: #001F54;
+  color: #fff;
+  text-align: center;
+}
+
+.site-header {
+  padding: 2rem 0;
+}
+
+.site-footer {
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin-top: 1rem;
+  flex-direction: row;
+}
+
+.navbar a {
+  color: #fff;
+  margin: 0 1rem;
+  font-weight: 600;
+  padding: 0.2rem 0;
+  text-decoration: none;
+  position: relative;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff7f50;
+  transition: width 0.3s;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+    Sections and Cards
+    ========================================================================== */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out, box-shadow 0.3s;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.card a {
+  color: #0077cc;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.card a:hover,
+.card a:active {
+  border-color: #0077cc;
+  color: #005fa3;
+}
+
+/* ==========================================================================
+    Responsive Design
+    ========================================================================== */
+@media (max-width: 600px) {
+  .navbar ul {
+    flex-direction: column;
+  }
+  .navbar a {
+    margin: 0.5rem 0;
+  }
+}
